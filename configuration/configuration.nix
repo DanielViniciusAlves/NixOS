@@ -104,6 +104,12 @@
     wget
     git
     neovim
+    kitty
+    tmux
+  ];
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -43,22 +43,22 @@
     plugins = with pkgs.vimPlugins; [
       {
         plugin = catppuccin-nvim;
-        config = toLuaFile ./nvim/plugin/color.lua;
+        config = toLuaFile ../../modules/nvim/plugin/color.lua;
       }
 
       {
         plugin = telescope-nvim;
-        config = toLuaFile ./nvim/plugin/telescope/config.lua;
+        config = toLuaFile ../../modules/nvim/plugin/telescope/config.lua;
       }
 
       {
         plugin = nvim-lspconfig;
-        config = toLuaFile ./nvim/plugin/lsp.lua;
+        config = toLuaFile ../../modules/nvim/plugin/lsp.lua;
       }
 
       {
         plugin = nvim-cmp;
-        config = toLuaFile ./nvim/plugin/cmp.lua;
+        config = toLuaFile ../../modules/nvim/plugin/cmp.lua;
       }
 
       {
@@ -75,7 +75,7 @@
           p.tree-sitter-python
           p.tree-sitter-json
         ]));
-        config = toLuaFile ./nvim/plugin/treesitter.lua;
+        config = toLuaFile ../../modules/nvim/plugin/treesitter.lua;
       }
 
       cmp_luasnip
@@ -98,13 +98,13 @@
     ];
 
     extraLuaConfig = ''
-      ${builtins.readFile ./nvim/keymap.lua}
-      ${builtins.readFile ./nvim/option.lua}
-      ${builtins.readFile ./nvim/test.lua}
-      ${builtins.readFile ./nvim/plugin/telescope/keymap.lua}
-      ${builtins.readFile ./nvim/plugin/trouble.lua}
-      ${builtins.readFile ./nvim/plugin/harpoon.lua}
-      ${builtins.readFile ./nvim/plugin/plugins.lua}
+      ${builtins.readFile ../../modules/nvim/keymap.lua}
+      ${builtins.readFile ../../modules/nvim/option.lua}
+      ${builtins.readFile ../../modules/nvim/test.lua}
+      ${builtins.readFile ../../modules/nvim/plugin/telescope/keymap.lua}
+      ${builtins.readFile ../../modules/nvim/plugin/trouble.lua}
+      ${builtins.readFile ../../modules/nvim/plugin/harpoon.lua}
+      ${builtins.readFile ../../modules/nvim/plugin/plugins.lua}
     '';
   };
 

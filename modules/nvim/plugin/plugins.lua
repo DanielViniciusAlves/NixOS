@@ -30,7 +30,4 @@ vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 vim.keymap.set("n", "<leader>[", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<leader>]", function() harpoon:list():next() end)
 
--- -- Trouble
--- vim.keymap.set("n", "<leader>dT", "<CMD>Trouble diagnostics toggle focus=true<CR>")
--- vim.keymap.set("n", "<leader>dt", "<CMD>Trouble diagnostics toggle filter.buf=0 focus=true<CR>")
--- vim.keymap.set("n", "<leader>ds", "<CMD>Trouble symbols toggle focus=true<CR>")
+-- Trouble
