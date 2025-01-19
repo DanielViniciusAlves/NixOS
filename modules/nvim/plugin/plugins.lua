@@ -1,3 +1,7 @@
+-- Oil
+
+require("oil").setup()
+
 -- Comment
 require("Comment").setup({
     opleader = {
@@ -29,5 +33,3 @@ vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 
 vim.keymap.set("n", "<leader>[", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<leader>]", function() harpoon:list():next() end)
-
--- Trouble

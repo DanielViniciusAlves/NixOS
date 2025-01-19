@@ -10,7 +10,7 @@ local on_attach = function(client, buffer)
     vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", bufopts)
 
     local format = function()
-        vim.lsp.buf.format({ async = false, timeout_ms = 10000, bufnr = buffer })
+        vim.lsp.buf.format({ bufnr = buffer })
     end
 
     if client.supports_method("textDocument/formatting") then
@@ -22,6 +22,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 require('neodev').setup()
+
 require("lspconfig")["lua_ls"].setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -48,13 +49,13 @@ require("lspconfig")["lua_ls"].setup({
 })
 
 require("lspconfig")["nil_ls"].setup({
-    on_attach = on_attach,
-    settings = {
- ["nil"] = {
-            formatting = {
-                command = { "nixpkgs-fmt" },
-            },
-        },
+  on_attach = on_attach,
+  settings = {
+    ["nil"] = {
+      formatting = {
+        command = { "nixpkgs-fmt" },
+      },
     },
-    capabilities = capabilities,
+  },
+  capabilities = capabilities,
 })
