@@ -4,6 +4,7 @@
   imports =
     [
       ../../modules/nvim/nvim.nix
+      ../../modules/tmux/tmux.nix
       ../../modules/shell/sh.nix
     ];
 

@@ -96,7 +96,6 @@
     git
     neovim
     kitty
-    tmux
     zsh
   ];
 

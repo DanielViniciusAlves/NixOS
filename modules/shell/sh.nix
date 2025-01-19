@@ -16,6 +16,12 @@ in
 
     plugins = [
       {
+        name = "zsh-fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab.plugin.zsh";
+      }
+
+      {
         name = "zsh-git-prompt";
         src = pkgs.zsh-git-prompt;
         file = "share/zsh-git-prompt/zshrc.sh";
@@ -24,7 +30,7 @@ in
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "" ];
+      plugins = [ "mix" "fzf" ];
     };
 
     initExtra = ''
@@ -33,10 +39,11 @@ in
 
       RPROMPT='$(git_super_status)'
 
+      source "$HOME/.zsh/plugins/zsh-fzf-tab/share/fzf-tab/fzf-tab.plugin.zsh"
+
       bindkey '^P' history-beginning-search-backward
       bindkey '^N' history-beginning-search-forward
     '';
-
   };
 
   home.file = { };

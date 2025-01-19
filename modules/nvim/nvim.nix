@@ -15,6 +15,7 @@ in
 
         # LSP packages
         sumneko-lua-language-server
+        elixir-ls
         nixpkgs-fmt
         nil
     ];
@@ -54,8 +55,8 @@ in
                         p.tree-sitter-vim
                         p.tree-sitter-bash
                         p.tree-sitter-lua
-                        p.tree-sitter-python
                         p.tree-sitter-json
+                        p.tree-sitter-elixir
                     ]));
                     config = toLuaFile ../../modules/nvim/plugin/treesitter.lua;
                 }
