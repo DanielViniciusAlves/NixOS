@@ -4,8 +4,15 @@ let
   myAliases = { };
 in
 {
+  imports = [
+    ../../scripts/session/session.nix
+    ../../scripts/biptt_db/biptt_db.nix
+    ../../scripts/worktree/worktree.nix
+  ];
+
   home.packages = with pkgs; [
     fzf
+    screen
   ];
 
   programs.zsh = {
@@ -40,9 +47,12 @@ in
       RPROMPT='$(git_super_status)'
 
       source "$HOME/.zsh/plugins/zsh-fzf-tab/share/fzf-tab/fzf-tab.plugin.zsh"
+      source "$HOME/.zsh/completions/session.zsh"
+      source "$HOME/.zsh/completions/biptt_db.zsh"
+      source "$HOME/.zsh/completions/worktree.zsh"
 
-      bindkey '^P' history-beginning-search-backward
-      bindkey '^N' history-beginning-search-forward
+      bindkey '^N' up-line-or-search
+      bindkey '^P' down-line-or-search
     '';
   };
 
