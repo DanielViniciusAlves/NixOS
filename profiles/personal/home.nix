@@ -6,12 +6,17 @@
       ../../modules/nvim/nvim.nix
       ../../modules/tmux/tmux.nix
       ../../modules/shell/sh.nix
+      ../../modules/terminal/kitty.nix
+      ../../modules/wm/hyprland.nix
     ];
 
   home.username = userSettings.username;
   home.homeDirectory = "/home/" + userSettings.username;
 
   programs.home-manager.enable = true;
+
+  programs.kitty.enable = true;
+  wayland.windowManager.hyprland.enable = true;
 
   home.stateVersion = "24.11";
 

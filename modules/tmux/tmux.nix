@@ -18,7 +18,7 @@
     escapeTime = 0;
 
     plugins = with pkgs; [
-      tmuxPlugins.catppuccin
+      tmuxPlugins.gruvbox
       tmuxPlugins.better-mouse-mode
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank

@@ -30,7 +30,7 @@ in
 
             plugins = with pkgs.vimPlugins; [
                 {
-                    plugin = catppuccin-nvim;
+                    plugin = gruvbox-nvim;
                     config = toLuaFile ../../modules/nvim/plugin/color.lua;
                 }
 
