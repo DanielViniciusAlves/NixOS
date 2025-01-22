@@ -8,11 +8,9 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { nixpkgs, home-manager, hyprland, ... }:
+  outputs = { nixpkgs, home-manager, ... }:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -37,13 +35,6 @@
         daniel = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            {
-              wayland.windowManager.hyprland = {
-                enable = true;
-                # set the flake package
-                package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-              };
-            }
             (./. + "/profiles/personal/home.nix")
           ];
           extraSpecialArgs = {

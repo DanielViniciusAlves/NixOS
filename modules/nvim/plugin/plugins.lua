@@ -1,3 +1,11 @@
+-- Transparent
+
+require("transparent").setup({
+    extra_groups = {
+        "NormalFloat",
+    },
+})
+
 -- Oil
 
 require("oil").setup()

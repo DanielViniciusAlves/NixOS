@@ -78,6 +78,7 @@ in
                 trouble-nvim
                 vim-tmux-navigator
                 oil-nvim
+                transparent-nvim
             ];
 
             extraLuaConfig = ''

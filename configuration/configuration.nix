@@ -3,12 +3,16 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./hardware/mac-hardware-configuration.nix
     ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  #boot.loader.grub.enable = true;
+  #boot.loader.grub.device = "/dev/sda";
+  #boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
@@ -69,7 +73,7 @@
     zsh
   ];
 
-  programs.kitty.enable = true;
+  # programs.kitty.enable = true;
 
   # Enable the Hyprland window manager
   programs.hyprland.enable = true;
