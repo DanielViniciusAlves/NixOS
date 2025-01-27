@@ -56,6 +56,8 @@
       bind -r l resize-pane -R 5
       bind -r h resize-pane -L 5
 
+      bind u new-window 'yazi'
+
       # bind t display-popup -E "tmux new-session -s temp-terminal -A"
       bind e display-popup -E "tmux new-session -s worktree -A 'bash ~/.scripts/worktree.sh'"
       bind g display-popup -E "tmux new-session -s temp-git -A 'lazygit'"

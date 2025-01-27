@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   imports =
@@ -52,6 +52,7 @@
   services.printing.enable = true;
 
   hardware.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -71,9 +72,8 @@
     neovim
     kitty
     zsh
+    openvpn
   ];
-
-  # programs.kitty.enable = true;
 
   # Enable the Hyprland window manager
   programs.hyprland.enable = true;
@@ -96,7 +96,15 @@
     ];
   };
 
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=/home/${userSettings.username}/.dotfiles/configuration/configuration.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+
   services.openssh.enable = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

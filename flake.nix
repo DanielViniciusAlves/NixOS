@@ -19,6 +19,7 @@
 
       userSettings = {
         username = "daniel";
+        host = "desktop";
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
@@ -29,6 +30,9 @@
         modules = [
           ./configuration/configuration.nix
         ];
+        specialArgs = {
+          inherit userSettings;
+        };
       };
 
       homeConfigurations = {
