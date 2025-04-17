@@ -31,7 +31,6 @@
       general = {
         layout = "dwindle";
         gaps_in = 5;
-        gaps_out = 10;
         border_size = 2;
         resize_on_border = true;
         extend_border_grab_area = 5;
@@ -122,6 +121,7 @@
 
           # Lock screen
           "$mod CTRL, m, exec, hyprlock"
+
         ]
         ++ (
           builtins.concatLists (builtins.genList
@@ -160,7 +160,21 @@
           color = "rgba(00000055)";
         };
       };
+
+      monitor = [
+        "HDMI-A-1,1920x1080,0x0,1"
+        "DP-1,1920x1080,0x0,1"
+        "eDP-1,1920x1200,320x1080,1"
+      ];
+
     };
+    extraConfig = "
+        workspace=1,monitor:eDP-1
+        workspace=2,monitor:HDMI-A-1
+        workspace=3,monitor:HDMI-A-1
+        workspace=4,monitor:HDMI-A-1
+        workspace=5,monitor:HDMI-A-1
+    ";
   };
 }
 
