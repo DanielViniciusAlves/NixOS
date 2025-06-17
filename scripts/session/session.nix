@@ -2,6 +2,7 @@
 
 {
   home.file = {
+    ".dotfiles/scripts/session/templates/template.yml".source = ./templates/template.yml;
     ".scripts/session.lua".source = ./session.lua;
     ".zsh/completions/session.zsh" = {
       text = ''

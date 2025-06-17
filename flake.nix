@@ -46,6 +46,16 @@
           };
         };
 
+        wsl = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            (./. + "/profiles/wsl/home.nix")
+          ];
+          extraSpecialArgs = {
+            inherit userSettings;
+          };
+        };
+
         # work = home-manager.lib.homeManagerConfiguration {
         #     inherit pkgs;
         #     modules = [
