@@ -34,15 +34,15 @@
         border_size = 2;
         resize_on_border = true;
         extend_border_grab_area = 5;
-        border_part_of_window = false;
+        # border_part_of_window = false;
         no_border_on_floating = false;
         "col.active_border" = "rgb(a89984)";
         "col.inactive_border" = "0x00000000";
       };
 
       windowrule = [
-        "float, rofi"
-        "float, blueman"
+        "float, class:rofi"
+        "float, class:.blueman-manager-wrapped"
       ];
 
       exec-once = [

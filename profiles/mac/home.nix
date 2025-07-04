@@ -19,10 +19,10 @@
     lazygit
     lua
     xorg.xev
-    htop
+    # htop
 
     # Fonts
-    cascadia-code
+    # cascadia-code
 
     # Ollama
     ollama
