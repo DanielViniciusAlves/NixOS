@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware/dell-hardware-configuration.nix
+      ./hardware/desktop-hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -43,11 +43,11 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "br";
-    variant = "nodeadkeys";
+    layout = "us";
+    variant = "";
   };
 
-  console.keyMap = "br-abnt2";
+  # console.keyMap = "br-abnt2";
 
   services.printing.enable = true;
 
@@ -73,6 +73,7 @@
     kitty
     zsh
     openvpn
+    stremio
   ];
 
   # Enable the Hyprland window manager

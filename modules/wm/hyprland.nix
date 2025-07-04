@@ -55,15 +55,15 @@
         "hyprpaper"
 
         # Workspaces
-        "hyprctl dispatch exec 'kitty --hold neofetch'"
-        "hyprctl dispatch exec 'kitty pulsemixer'"
-        "hyprctl dispatch exec 'kitty btm --theme gruvbox'"
+        "hyprctl dispatch exec '[workspace 4 silent] kitty --hold neofetch'"
+        "hyprctl dispatch exec '[workspace 4 silent] kitty pulsemixer'"
+        "hyprctl dispatch exec '[workspace 4 silent] kitty btm --theme gruvbox'"
 
-        "hyprctl dispatch exec \"[workspace 2 silent] kitty --hold zsh -c 'lua /home/${userSettings.username}/.scripts/session.lua -l'\""
+        "hyprctl dispatch exec \"[workspace 1 silent] kitty --hold zsh -c 'lua /home/${userSettings.username}/.scripts/session.lua -l'\""
 
-        "hyprctl dispatch exec '[workspace 3 silent] brave'"
+        "hyprctl dispatch exec '[workspace 2 silent] brave'"
 
-        # "hyprctl dispatch exec '[workspace 5 silent] mongodb-compass'"
+        "hyprctl dispatch exec \"[workspace 5 silent] kitty --hold zsh -c 'tmuxinator home-daniel-dotfiles'\""
       ];
 
       bindle = [
@@ -89,6 +89,7 @@
           "$mod, return, exec, $terminal"
           "$mod, d, exec, $Menu"
           "$mod, e, exec, rofi -show run"
+          "$mod, t, exec, rofi -show window"
           "$mod, q, killactive"
           "$mod SHIFT, e, exit"
           "$mod, o, togglefloating"
@@ -124,15 +125,31 @@
 
         ]
         ++ (
-          builtins.concatLists (builtins.genList
-            (i:
-              let ws = i + 1;
-              in [
-                "$mod, code:1${toString i}, workspace, ${toString ws}"
-                "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-              ]
-            )
-            9)
+          let
+            wsTab = builtins.genList
+              (i:
+                let
+                  ws = i + 1;
+                in
+                [
+                  "ALT, code:1${toString i}, workspace, ${toString (ws + 3)}"
+                  "ALT, code:1${toString i}, workspace, ${toString ws}"
+                ]
+              ) 3;
+
+            wsNormal = builtins.genList
+              (j:
+                let
+                  ws = j + 1;
+                in
+                [
+                  "$mod, code:1${toString j}, workspace, ${toString ws}"
+                  "$mod SHIFT, code:1${toString j}, movetoworkspace, ${toString ws}"
+                ]
+              ) 9;
+
+          in
+          builtins.concatLists (wsTab ++ wsNormal)
         );
 
       decoration = {
@@ -163,17 +180,16 @@
 
       monitor = [
         "HDMI-A-1,1920x1080,0x0,1"
-        "DP-1,1920x1080,0x0,1"
-        "eDP-1,1920x1200,320x1080,1"
+        "DP-2,1920x1080,1920x0,1"
       ];
 
     };
     extraConfig = "
-        workspace=1,monitor:eDP-1
+        workspace=1,monitor:HDMI-A-1
         workspace=2,monitor:HDMI-A-1
         workspace=3,monitor:HDMI-A-1
-        workspace=4,monitor:HDMI-A-1
-        workspace=5,monitor:HDMI-A-1
+        workspace=4,monitor:DP-2
+        workspace=5,monitor:DP-2
     ";
   };
 }

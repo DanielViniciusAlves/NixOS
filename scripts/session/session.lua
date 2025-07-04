@@ -50,10 +50,10 @@ local function create_session()
     directory = directory:gsub(".", "\\.")
     directory = directory:gsub("%s+", "")
 
-    os.execute("cp ~/.dotfiles/scripts/session/templates/template.yml ~/.dotfiles/scripts/session/templates/" .. session_name .. ".yml")
-    os.execute("sed -i 's/template_session/" .. session_name .. "/g' ~/.dotfiles/scripts/session/templates/" .. session_name .. ".yml")
-    os.execute("sed -i 's/template_directory/" .. directory .. "/g' ~/.dotfiles/scripts/session/templates/" .. session_name .. ".yml")
-    os.execute("nvim ~/.dotfiles/scripts/session/templates/" .. session_name .. ".yml")
+    os.execute("cp ~/.dotfiles/NixOS/scripts/session/templates/template.yml ~/.dotfiles/NixOS/scripts/session/templates/" .. session_name .. ".yml")
+    os.execute("sed -i 's/template_session/" .. session_name .. "/g' ~/.dotfiles/NixOS/scripts/session/templates/" .. session_name .. ".yml")
+    os.execute("sed -i 's/template_directory/" .. directory .. "/g' ~/.dotfiles/NixOS/scripts/session/templates/" .. session_name .. ".yml")
+    os.execute("nvim ~/.dotfiles/NixOS/scripts/session/templates/" .. session_name .. ".yml")
     os.execute("tmuxinator start " .. session_name)
 end
 

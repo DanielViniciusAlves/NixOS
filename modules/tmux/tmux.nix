@@ -2,7 +2,7 @@
 
 {
   home.sessionVariables = {
-    TMUXINATOR_CONFIG = "/home/" + userSettings.username + "/.dotfiles/scripts/session/templates";
+    TMUXINATOR_CONFIG = "/home/" + userSettings.username + "/.dotfiles/NixOS/scripts/session/templates";
   };
 
   home.packages = with pkgs; [
