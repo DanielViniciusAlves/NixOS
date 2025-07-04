@@ -13,7 +13,7 @@
 
   programs.home-manager.enable = true;
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
     lazygit
@@ -23,7 +23,20 @@
 
     # Fonts
     cascadia-code
+
+    # Ollama
+    ollama
+    open-webui
   ];
+
+  services.ollama = {
+    enable = true;
+    loadModels = [ "llama3.2:3b" "deepseek-r1:1.5b" ];
+  };
+
+  services.open-webui = {
+    enable = true;
+  };
 
   fonts.fontconfig.enable = true;
   programs.bottom.enable = true;

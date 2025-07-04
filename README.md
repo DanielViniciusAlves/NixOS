@@ -5,6 +5,29 @@
 - https://github.com/librephoenix/nixos-config
 - https://github.com/Frost-Phoenix/nixos-config
 
+## How to use:
+
+- Clone the repo
+- Move to .dotfiles
+- Install home-manager:
+
+'''
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+'''
+
+- Install configuration:
+'''
+sudo nixos-rebuild switch --flake .
+'''
+
+- Install home manager flake:
+'''
+home-manager switch --flake .
+'''
+
+
 ## Config used:
 
 - Nvim

@@ -20,7 +20,7 @@
   programs.kitty.enable = true;
   wayland.windowManager.hyprland.enable = true;
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
     lazygit

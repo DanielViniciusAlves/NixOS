@@ -81,7 +81,9 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    # (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.droid-sans-mono
   ];
 
   environment.shells = with pkgs; [ zsh ];
@@ -109,6 +111,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
 }
