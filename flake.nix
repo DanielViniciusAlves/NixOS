@@ -14,12 +14,12 @@
     let
       systemSettings = {
         system = "x86_64-linux";
-        profile = "personal";
+        profile = "mac";
       };
 
       userSettings = {
         username = "daniel";
-        host = "desktop";
+        host = "nixos";
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
@@ -39,29 +39,12 @@
         daniel = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            (./. + "/profiles/personal/home.nix")
+            (./. + "/profiles/mac/home.nix")
           ];
           extraSpecialArgs = {
             inherit userSettings;
           };
         };
- #
- #        wsl = home-manager.lib.homeManagerConfiguration {
- #          inherit pkgs;
- #          modules = [
- #            (./. + "/profiles/wsl/home.nix")
- #          ];
- #          extraSpecialArgs = {
- #            inherit userSettings;
- #          };
- #        };
-
-        # work = home-manager.lib.homeManagerConfiguration {
-        #     inherit pkgs;
-        #     modules = [
-        #         "./profiles/work/home.nix"
-        #     ];
-        # };
       };
     };
 }
