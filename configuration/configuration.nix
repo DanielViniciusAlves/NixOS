@@ -10,7 +10,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "server"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
@@ -49,7 +49,7 @@
 
   services.ollama = {
     enable = true;
-    loadModels = [ "mixtral:8x7b" "deepseek-r1:1.5b" ];
+    loadModels = [ "smollm2:135m" "granite3.1-dense:2b" ];
   };
 
   systemd.services.ollama.serviceConfig = {
