@@ -49,11 +49,23 @@
 
   services.ollama = {
     enable = true;
-    loadModels = [ "llama3.2:3b" "deepseek-r1:1.5b" ];
+    loadModels = [ "mixtral:8x7b" "deepseek-r1:1.5b" ];
+  };
+
+  systemd.services.ollama.serviceConfig = {
+    Environment = [ "OLLAMA_HOST=0.0.0.0:11434" ];
   };
 
   services.open-webui = {
     enable = true;
+    host = "0.0.0.0";
+    environment = {
+      ANONYMIZED_TELEMETRY = "False";
+      DO_NOT_TRACK = "True";
+      SCARF_NO_ANALYTICS = "True";
+      OLLAMA_API_BASE_URL = "http://192.168.3.105:11434/api";
+      OLLAMA_BASE_URL = "http://192.168.3.105:11434";
+    };
   };
 
   fonts.packages = with pkgs; [
@@ -79,6 +91,7 @@
   ];
 
   services.openssh.enable = true;
+  networking.firewall.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
