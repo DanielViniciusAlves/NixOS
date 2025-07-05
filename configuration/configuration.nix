@@ -41,7 +41,20 @@
     vim
     wget
     git
+
+    # LLM
+    ollama
+    open-webui
   ];
+
+  services.ollama = {
+    enable = true;
+    loadModels = [ "llama3.2:3b" "deepseek-r1:1.5b" ];
+  };
+
+  services.open-webui = {
+    enable = true;
+  };
 
   fonts.packages = with pkgs; [
     pkgs.nerd-fonts.fira-code
@@ -56,7 +69,7 @@
     isNormalUser = true;
     description = "daniel";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   nix.nixPath = [

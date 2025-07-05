@@ -9,19 +9,7 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
-    # Ollama
-    ollama
-    open-webui
   ];
-
-  services.ollama = {
-    enable = true;
-    loadModels = [ "llama3.2:3b" "deepseek-r1:1.5b" ];
-  };
-
-  home.file = {
-    # ".screenrc".source = dotfiles/screenrc;
-  };
 
   home.sessionVariables = {
     EDITOR = "vim";
