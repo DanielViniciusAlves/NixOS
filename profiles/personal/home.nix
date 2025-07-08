@@ -24,7 +24,6 @@
 
   home.packages = with pkgs; [
     lazygit
-    lua
     xorg.xev
     htop
     bottom
@@ -44,6 +43,12 @@
 
     # Network
     networkmanagerapplet
+
+    # Languages
+    lua
+    jdk21
+    maven
+    nodejs_24
   ];
 
   services.mpris-proxy.enable = true;

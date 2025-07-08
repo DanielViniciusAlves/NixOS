@@ -79,5 +79,5 @@ end
 vim.api.nvim_command(":command! Test lua Test()")
 vim.api.nvim_command(":command! TestProject lua TestProject()")
 
-vim.keymap.set("n", "<leader>t", vim.cmd.Test)
-vim.keymap.set("n", "<leader>T", vim.cmd.TestProject)
+-- vim.keymap.set("n", "<leader>t", vim.cmd.Test)
+-- vim.keymap.set("n", "<leader>T", vim.cmd.TestProject)

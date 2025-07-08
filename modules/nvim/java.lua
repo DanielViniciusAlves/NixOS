@@ -1,0 +1,65 @@
+local on_attach = function(_, buffer)
+    local bufopts = { noremap = true, silent = true, buffer = buffer }
+
+    vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufopts)
+    vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", bufopts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set("n", "gI", "<cmd>Telescope lsp_implementations<cr>", bufopts)
+    vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", bufopts)
+
+    vim.keymap.set('n', '<leader>o', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = 'Organize Imports' })
+    vim.keymap.set('n', '<leader>jv', "<Cmd>lua require('jdtls').extract_variable()<CR>",
+        { desc = 'Extract Variable' })
+    vim.keymap.set('v', '<leader>jv', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>",
+        { desc = 'Extract Variable' })
+    vim.keymap.set('n', '<leader>jc', "<Cmd>lua require('jdtls').extract_constant()<CR>",
+        { desc = 'Extract Constant' })
+    vim.keymap.set('v', '<leader>jc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>",
+        { desc = 'Extract Constant' })
+    vim.keymap.set('v', '<leader>jm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>",
+        { desc = 'Extract Method' })
+
+    vim.api.nvim_buf_create_user_command(buffer, "Format", function(_)
+        vim.lsp.buf.format()
+    end, { desc = "Format current buffer with LSP" })
+
+    vim.keymap.set("n", "<leader>f", function()
+        vim.lsp.buf.format({ buffer = buffer })
+    end, { buffer = buffer, desc = "Format current buffer with LSP" })
+end
+
+local status, jdtls = pcall(require, 'jdtls')
+if not status then
+    return
+end
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+
+local config = {
+    cmd = { 'jdtls' },
+    on_attach = on_attach,
+    root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw', 'pom.xml' }, { upward = true })[1]),
+    settings = {
+        java = {
+            signatureHelp = { enabled = true },
+            extendedClientCapabilities = extendedClientCapabilities,
+            maven = {
+                downloadSources = true,
+            },
+            referencesCodeLens = {
+                enabled = true,
+            },
+            references = {
+                includeDecompiledSources = true,
+            },
+            inlayHints = {
+                parameterNames = {
+                    enabled = 'all',
+                },
+            },
+            format = {
+                enabled = true,
+            },
+        }
+    },
+}
+require('jdtls').start_or_attach(config)

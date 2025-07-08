@@ -8,6 +8,11 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plugins-nvim-jdtls = {
+      url = "github:mfussenegger/nvim-jdtls";
+      flake = false;
+    };
   };
 
   outputs = { nixpkgs, home-manager, ... }:
@@ -36,7 +41,7 @@
       };
 
       homeConfigurations = {
-        daniel = home-manager.lib.homeManagerConfiguration {
+        default = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             (./. + "/profiles/personal/home.nix")
@@ -45,23 +50,6 @@
             inherit userSettings;
           };
         };
- #
- #        wsl = home-manager.lib.homeManagerConfiguration {
- #          inherit pkgs;
- #          modules = [
- #            (./. + "/profiles/wsl/home.nix")
- #          ];
- #          extraSpecialArgs = {
- #            inherit userSettings;
- #          };
- #        };
-
-        # work = home-manager.lib.homeManagerConfiguration {
-        #     inherit pkgs;
-        #     modules = [
-        #         "./profiles/work/home.nix"
-        #     ];
-        # };
       };
     };
 }

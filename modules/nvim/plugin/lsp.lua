@@ -1,8 +1,6 @@
 local on_attach = function(client, buffer)
     local bufopts = { noremap = true, silent = true, buffer = buffer }
 
-    vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<cr>", bufopts)
-
     vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", bufopts)
     vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", bufopts)
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
@@ -49,13 +47,13 @@ require("lspconfig")["lua_ls"].setup({
 })
 
 require("lspconfig")["nil_ls"].setup({
-  on_attach = on_attach,
-  settings = {
-    ["nil"] = {
-      formatting = {
-        command = { "nixpkgs-fmt" },
-      },
+    on_attach = on_attach,
+    settings = {
+        ["nil"] = {
+            formatting = {
+                command = { "nixpkgs-fmt" },
+            },
+        },
     },
-  },
-  capabilities = capabilities,
+    capabilities = capabilities,
 })

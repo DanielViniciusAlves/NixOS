@@ -39,7 +39,7 @@ in
       plugins = [ "mix" "fzf" ];
     };
 
-    initExtra = ''
+    initContent = ''
       PROMPT="%U%F{33}%n%f%u@%U%F{195}%m%f%u %F{6}✘  %F{195}%~%f
       %F{33}→%f "
 

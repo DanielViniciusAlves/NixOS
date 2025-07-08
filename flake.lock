@@ -37,10 +37,27 @@
         "type": "github"
       }
     },
+    "plugins-nvim-jdtls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1749801683,
+        "narHash": "sha256-9E9VUDgGLQ7V0xpiMpjhoNURpctR+WMMqsu2XL3ATZs=",
+        "owner": "mfussenegger",
+        "repo": "nvim-jdtls",
+        "rev": "4d77ff02063cf88963d5cf10683ab1fd15d072de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mfussenegger",
+        "repo": "nvim-jdtls",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plugins-nvim-jdtls": "plugins-nvim-jdtls"
       }
     }
   },
