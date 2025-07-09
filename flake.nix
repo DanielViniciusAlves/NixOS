@@ -41,7 +41,7 @@
       };
 
       homeConfigurations = {
-        default = home-manager.lib.homeManagerConfiguration {
+        daniel = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             (./. + "/profiles/personal/home.nix")

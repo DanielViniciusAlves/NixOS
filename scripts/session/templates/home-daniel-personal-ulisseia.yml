@@ -1,5 +1,8 @@
-name: home-daniel-dotfiles
-root: ~/.dotfiles/NixOS
+name: home-daniel-personal-ulisseia
+root: ~/personal/ulisseia
+
+# on_project_start: WORKTREE_PATH=$(git worktree list | fzf | awk '{print $1}') && export WORKTREE_PATH
+# pre_window: cd $WORKTREE_PATH
 
 # Optional tmux socket
 # socket_name: foo
@@ -44,6 +47,6 @@ root: ~/.dotfiles/NixOS
 
 windows:
   - editor: vim .
-  - home_builder: home-manager switch --flake .
+  - running: nix-shell . --command "zsh"
   - git: lazygit
 
