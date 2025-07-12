@@ -26,6 +26,9 @@ require("marks").setup({
     },
 })
 
+-- GitSigns
+require("gitsigns").setup()
+
 -- Undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 

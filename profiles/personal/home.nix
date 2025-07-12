@@ -28,6 +28,7 @@
     htop
     bottom
     neofetch
+    obsidian
 
     # Audio
     pulsemixer
@@ -36,7 +37,6 @@
 
     # File manager
     nautilus
-    yazi
 
     # Browser
     brave

@@ -12,6 +12,7 @@ in
     xclip
     wl-clipboard
     fd
+    unzip
 
     # LSP packages
     sumneko-lua-language-server
@@ -20,6 +21,10 @@ in
     nil
     jdt-language-server
     vimPlugins.nvim-jdtls
+
+    # Java packages
+    vscode-extensions.vscjava.vscode-java-debug
+    vscode-extensions.vscjava.vscode-java-test
   ];
 
   programs.neovim =
@@ -92,6 +97,10 @@ in
         transparent-nvim
         neotest-java
         neotest
+        render-markdown-nvim
+        nvim-dap
+        telescope-ui-select-nvim
+        gitsigns-nvim
       ];
 
       extraLuaConfig = ''

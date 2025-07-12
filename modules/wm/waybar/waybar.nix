@@ -26,6 +26,8 @@ in
   ];
 
   programs.waybar = {
+    enable = true;
+    # systemd.enable = true;
     settings = with custom; [{
       height = 30;
       layer = "top";

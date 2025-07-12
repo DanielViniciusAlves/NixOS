@@ -51,18 +51,10 @@
       bind n next-window
       bind p previous-window
 
-      bind -r j resize-pane -D 5
-      bind -r k resize-pane -U 5
-      bind -r l resize-pane -R 5
-      bind -r h resize-pane -L 5
+      # Move to the window with the name "git"
+      bind g select-window -t git
 
-      bind u new-window 'yazi'
-
-      # bind t display-popup -E "tmux new-session -s temp-terminal -A"
-      bind e display-popup -E "tmux new-session -s worktree -A 'bash ~/.scripts/worktree.sh'"
-      bind g display-popup -E "tmux new-session -s temp-git -A 'lazygit'"
-
-      # bind b display-popup -E "tmux new-session -s temp-git -A 'lua ~/.scripts/session.lua -l'"
+      bind b last-window
 
       bind -r m resize-pane -Z
 

@@ -22,9 +22,6 @@
     htop
     neofetch
 
-    # File manager
-    yazi
-
     # Fonts
     cascadia-code
   ];

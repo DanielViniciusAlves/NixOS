@@ -63,6 +63,8 @@
 
         "hyprctl dispatch exec '[workspace 2 silent] brave'"
 
+        "hyprctl dispatch exec \"[workspace 3 silent] kitty --hold zsh -c 'tmuxinator home-daniel-personal-annotations'\""
+
         "hyprctl dispatch exec \"[workspace 5 silent] kitty --hold zsh -c 'tmuxinator home-daniel-dotfiles'\""
       ];
 
