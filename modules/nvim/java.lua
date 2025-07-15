@@ -25,8 +25,6 @@ local on_attach = function(_, buffer)
         { desc = 'Run Nearest Test Method' })
     vim.keymap.set('n', '<leader>tl', "<Cmd>lua require('dap').repl.open()<CR>",
         { desc = 'Open test output' })
-    vim.keymap.set('n', '<leader>tg', "<Cmd>lua require('jdtls.tests').generate()<CR>",
-        { desc = 'Generate Tests' })
 
     vim.api.nvim_buf_create_user_command(0, "GenTest", function()
         require("jdtls.tests").generate()

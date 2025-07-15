@@ -85,7 +85,7 @@ in
         nvim-web-devicons
         comment-nvim
         plenary-nvim
-        copilot-vim
+        copilot-lua
         mini-icons
         marks-nvim
         undotree
@@ -111,6 +111,7 @@ in
         ${builtins.readFile ./plugin/trouble.lua}
         ${builtins.readFile ./plugin/harpoon.lua}
         ${builtins.readFile ./plugin/neotest.lua}
+        ${builtins.readFile ./plugin/copilot.lua}
         ${builtins.readFile ./plugin/plugins.lua}
       '';
     };

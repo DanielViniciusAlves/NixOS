@@ -63,7 +63,7 @@
 
         "hyprctl dispatch exec '[workspace 2 silent] brave'"
 
-        "hyprctl dispatch exec \"[workspace 3 silent] kitty --hold zsh -c 'tmuxinator home-daniel-personal-annotations'\""
+        "hyprctl dispatch exec \"[workspace 6 silent] kitty --hold zsh -c 'tmuxinator home-daniel-personal-annotations'\""
 
         "hyprctl dispatch exec \"[workspace 5 silent] kitty --hold zsh -c 'tmuxinator home-daniel-dotfiles'\""
       ];
@@ -90,8 +90,8 @@
           "$mod, w, exec, brave"
           "$mod, return, exec, $terminal"
           "$mod, d, exec, $Menu"
-          "$mod, e, exec, rofi -show run"
-          "$mod, t, exec, rofi -show window"
+          "$mod, r, exec, rofi -show run"
+          "$mod, p, exec, rofi -show window"
           "$mod, q, killactive"
           "$mod SHIFT, e, exit"
           "$mod, o, togglefloating"
