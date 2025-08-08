@@ -54,8 +54,6 @@
       # Move to the window with the name "git"
       bind g select-window -t git
 
-      bind b last-window
-
       bind -r m resize-pane -Z
 
       bind o set-option -g status

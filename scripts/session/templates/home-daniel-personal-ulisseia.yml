@@ -48,5 +48,6 @@ root: ~/personal/ulisseia
 windows:
   - editor: vim .
   - running: nix-shell . --command "zsh"
+  - opencode: opencode .
   - git: lazygit
 

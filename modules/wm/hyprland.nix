@@ -62,10 +62,6 @@
         "hyprctl dispatch exec \"[workspace 1 silent] kitty --hold zsh -c 'lua /home/${userSettings.username}/.scripts/session.lua -l'\""
 
         "hyprctl dispatch exec '[workspace 2 silent] brave'"
-
-        "hyprctl dispatch exec \"[workspace 6 silent] kitty --hold zsh -c 'tmuxinator home-daniel-personal-annotations'\""
-
-        "hyprctl dispatch exec \"[workspace 5 silent] kitty --hold zsh -c 'tmuxinator home-daniel-dotfiles'\""
       ];
 
       bindle = [

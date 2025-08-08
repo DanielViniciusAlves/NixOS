@@ -45,5 +45,6 @@ root: ~/.dotfiles/NixOS
 windows:
   - editor: vim .
   - home_builder: home-manager switch --flake .
+  - opencode: opencode .
   - git: lazygit
 

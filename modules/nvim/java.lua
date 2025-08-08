@@ -23,12 +23,12 @@ local on_attach = function(_, buffer)
         { desc = 'Run Test Class' })
     vim.keymap.set('n', '<leader>t', "<Cmd>lua require('jdtls').test_nearest_method()<CR>",
         { desc = 'Run Nearest Test Method' })
-    vim.keymap.set('n', '<leader>tl', "<Cmd>lua require('dap').repl.open()<CR>",
+    vim.keymap.set('n', '<leader>tq', "<Cmd>lua require('dap').repl.open()<CR>",
         { desc = 'Open test output' })
 
     vim.api.nvim_buf_create_user_command(0, "GenTest", function()
         require("jdtls.tests").generate()
-    end, {desc = "Generate Tests"})
+    end, { desc = "Generate Tests" })
 
     vim.api.nvim_buf_create_user_command(buffer, "Format", function(_)
         vim.lsp.buf.format()
@@ -81,6 +81,7 @@ local config = {
             },
             format = {
                 enabled = true,
+                settings = { url = "./eclipse-java-google-style.xml" }
             },
         }
     },

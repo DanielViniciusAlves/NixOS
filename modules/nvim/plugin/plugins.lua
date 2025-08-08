@@ -44,3 +44,14 @@ vim.keymap.set("n", "<leader>4", function() harpoon:list():select(4) end)
 
 vim.keymap.set("n", "<leader>[", function() harpoon:list():prev() end)
 vim.keymap.set("n", "<leader>]", function() harpoon:list():next() end)
+
+-- Json Formatter (Not really a plugin)
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "json",
+    callback = function()
+        vim.api.nvim_buf_create_user_command(0, "Format", function()
+            vim.cmd('%!jq .')
+        end, {})
+        vim.keymap.set("n", "<leader>f", ":Format<CR>", { buffer = true })
+    end,
+})

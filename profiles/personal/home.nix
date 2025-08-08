@@ -1,4 +1,4 @@
-{ pkgs, userSettings, ... }:
+{ pkgs, userSettings, unstable, ... }:
 
 {
   imports =
@@ -10,6 +10,7 @@
       ../../modules/wm/hyprland.nix
       ../../modules/gtk/gtk.nix
       ../../modules/network/network.nix
+      ../../modules/opencode/opencode.nix
     ];
 
   home.username = userSettings.username;
@@ -28,7 +29,8 @@
     htop
     bottom
     neofetch
-    obsidian
+    unstable.opencode
+    jq
 
     # Audio
     pulsemixer
@@ -49,6 +51,7 @@
     jdk21
     maven
     nodejs_24
+    go
   ];
 
   services.mpris-proxy.enable = true;

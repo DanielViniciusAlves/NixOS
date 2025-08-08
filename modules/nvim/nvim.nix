@@ -73,6 +73,7 @@ in
           plugin = pkgs.vimPlugins.nvim-jdtls;
           runtime = {
             "ftplugin/java.lua".source = ./java.lua;
+            "ftplugin/eclipse-java-google-style.xml".source = ./eclipse-java-google-style.xml;
           };
           type = "lua";
         }

@@ -9,13 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/master";
+
     plugins-nvim-jdtls = {
       url = "github:mfussenegger/nvim-jdtls";
       flake = false;
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... }:
     let
       systemSettings = {
         system = "x86_64-linux";
@@ -28,6 +30,7 @@
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+      unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
     in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -47,7 +50,7 @@
             (./. + "/profiles/personal/home.nix")
           ];
           extraSpecialArgs = {
-            inherit userSettings;
+            inherit userSettings unstable;
           };
         };
       };
